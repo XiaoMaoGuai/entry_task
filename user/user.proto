@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+option go_package = "git.garena.com/weihui.zhang/entry-task/user";
+
+package user;
+
+message LoginRequest {
+  string username = 1;
+  string passwd = 2;
+}
+
+message LoginResponse {
+  string username = 1 ;
+  string nickname = 2;
+  string profile = 3;
+  string token = 4;
+  uint32 code = 5;
+  uint32 msg = 6;
+}
+
+message CommonRequest {
+  string username = 1;
+  string token = 2;
+}
+
+message EditRequest {
+  string username = 1;
+  string token = 2;
+  string nickname = 3;
+  string profile = 4;
+  uint32 mode = 5;
+}
+
+message EditResponse {
+  uint32 code = 1;
+  uint32 msg = 2;
+}
+
+service UserService {
+
+  rpc login(LoginRequest) returns (LoginResponse) {}
+
+  rpc getUserInfo(CommonRequest) returns (LoginResponse) {}
+
+  rpc edit(EditRequest) returns (EditResponse) {}
+
+}
