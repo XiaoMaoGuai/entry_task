@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "git.garena.com/weihui.zhang/entry-task/user";
+option go_package = "github.com/XiaoMaoGuai/entry_task/user";
 
 package user;
 
